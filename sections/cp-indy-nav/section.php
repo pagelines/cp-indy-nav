@@ -4,7 +4,7 @@ Section: DMS Indy Nav
 Author: TourKick (Clifford P)
 Description: Indy Nav is a fork of the Navbar section but you can customize every item's color, disable mobile menu, and customize mobile menu's button text. It can display parents, children, and grandchildren (3 levels) but does not display an image or search box (except on mobile nav because that's part of DMS default, not Indy Nav). Indy Nav... make it your own!
 Class Name: DMSIndyNav
-Version: 1.0
+Version: 1.1
 Cloning: true
 v3: true
 Filter: nav, dual-width
@@ -15,6 +15,8 @@ Filter: nav, dual-width
 /*
 
 IDEAS:
+
+color theme/scheme instead of doubling number of color options (preset + picker). Presets were commented out in v1.1
 
 centered menu instead of left/right
 - would then need to do bg on .navline instead of .indynav
@@ -272,15 +274,17 @@ class DMSIndyNav extends PageLinesSection {
 				'type' 		=> 'multi',
 				'col'		=> 2,
 				'title'		=> __( 'Indy Nav Styling', 'indynav' ),
-				'help'		=> __( 'Color drop-down options beginning with an <strong>asterisk (*)</strong> are from <a href="http://flatuicolors.com/" target="_blank">FlatUIcolors.com</a><br><br>Color Picker overrides Drop-Down Selection, if both are entered for the same setting.', 'indynav' ),
+				//'help'		=> __( 'Color drop-down options beginning with an <strong>asterisk (*)</strong> are from <a href="http://flatuicolors.com/" target="_blank">FlatUIcolors.com</a><br><br>Color Picker overrides Drop-Down Selection, if both are entered for the same setting.', 'indynav' ),
 				'opts'		=> array(
 					//
+/*
 					array(
 						'key'	=> 'indynav_color_bg',
 						'type' 	=> 'select',
 						'label'	=> __('Indy Nav Background Color', 'indynav'),
 						'opts' => $this->tk_color_options(),
 					),
+*/
 		            array(
 		                'key'		=> 'indynav_color_bg_picker',
 		                'type'		=> 'color',
@@ -288,25 +292,29 @@ class DMSIndyNav extends PageLinesSection {
 		                'default'	=> '',
 		            ),
 					//
+/*
 					array(
 						'key'	=> 'indynav_color_links_top',
 						'type' 	=> 'select',
-						'label'	=> __('Top Level Links Color<br>Default: <span class="pl-link">PL Link Base Setting</span>', 'indynav'),
+						'label'	=> __('Top Level Links Color', 'indynav'),
 						'opts' => $this->tk_color_options(),
 					),
+*/
 		            array(
 		                'key'		=> 'indynav_color_links_top_picker',
 		                'type'		=> 'color',
-		                'label'		=> __( 'Top Level Links Color', 'indynav' ),
+		                'label'		=> __( 'Top Level Links Color<br>Default: <span class="pl-link">PL Link Base Setting</span>', 'indynav' ),
 		                'default'	=> '',
 		            ),
 					//
+/*
 					array(
 						'key'	=> 'indynav_color_links_top_current',
 						'type' 	=> 'select',
 						'label'	=> __('Top Level <em>Current Page</em> Item Color', 'indynav'),
 						'opts' => $this->tk_color_options(),
 					),
+*/
 		            array(
 		                'key'		=> 'indynav_color_links_top_current_picker',
 		                'type'		=> 'color',
@@ -314,12 +322,14 @@ class DMSIndyNav extends PageLinesSection {
 		                'default'	=> '',
 		            ),
 		            //
+/*
 					array(
 						'key'	=> 'indynav_color_links_top_current_bg',
 						'type' 	=> 'select',
 						'label'	=> __('Top Level <em>Current Page</em> Item <em>Background</em> Color', 'indynav'),
 						'opts' => $this->tk_color_options(),
 					),
+*/
 		            array(
 		                'key'		=> 'indynav_color_links_top_current_bg_picker',
 		                'type'		=> 'color',
@@ -327,12 +337,14 @@ class DMSIndyNav extends PageLinesSection {
 		                'default'	=> '',
 		            ),
 		            //
+/*
 					array(
 						'key'	=> 'indynav_color_sub_items',
 						'type' 	=> 'select',
 						'label'	=> __('Non-Top Level Items Color', 'indynav'),
 						'opts' => $this->tk_color_options(),
 					),
+*/
 		            array(
 		                'key'		=> 'indynav_color_sub_items_picker',
 		                'type'		=> 'color',
@@ -340,12 +352,14 @@ class DMSIndyNav extends PageLinesSection {
 		                'default'	=> '',
 		            ),
 		            //
+/*
 					array(
 						'key'	=> 'indynav_color_sub_items_bg',
 						'type' 	=> 'select',
 						'label'	=> __('Non-Top Level Items <em>Background</em> Color', 'indynav'),
 						'opts' => $this->tk_color_options(),
 					),
+*/
 		            array(
 		                'key'		=> 'indynav_color_sub_items_bg_picker',
 		                'type'		=> 'color',
@@ -353,12 +367,14 @@ class DMSIndyNav extends PageLinesSection {
 		                'default'	=> '',
 		            ),
 		            //
+/*
 					array(
 						'key'	=> 'indynav_color_sub_items_hover',
 						'type' 	=> 'select',
 						'label'	=> __('Non-Top Level Items Color <em>On Hover</em>', 'indynav'),
 						'opts' => $this->tk_color_options(),
 					),
+*/
 		            array(
 		                'key'		=> 'indynav_color_sub_items_hover_picker',
 		                'type'		=> 'color',
@@ -366,42 +382,48 @@ class DMSIndyNav extends PageLinesSection {
 		                'default'	=> '',
 		            ),
 		            //
+/*
 					array(
 						'key'	=> 'indynav_color_sub_items_bg_hover',
 						'type' 	=> 'select',
-						'label'	=> __('Non-Top Level Items <em>Background</em> Color <em>On Hover</em><br>Default: <span style="color: #2278e8;">#2278e8</span>', 'indynav'),
+						'label'	=> __('Non-Top Level Items <em>Background</em> Color <em>On Hover</em>', 'indynav'),
 						'opts' => $this->tk_color_options(),
 					),
+*/
 		            array(
 		                'key'		=> 'indynav_color_sub_items_bg_hover_picker',
 		                'type'		=> 'color',
-		                'label'		=> __( 'Non-Top Level Items <em>Background</em> Color <em>On Hover</em>', 'indynav' ),
+		                'label'		=> __( 'Non-Top Level Items <em>Background</em> Color <em>On Hover</em><br>Default: <span style="color: #2278e8;">#2278e8</span>', 'indynav' ),
 		                'default'	=> '',
 		            ),
 		            //
+/*
 					array(
 						'key'	=> 'indynav_color_sub_items_current',
 						'type' 	=> 'select',
-						'label'	=> __('Non-Top Level <em>Current Page</em> Item Color<br>Default: White', 'indynav'),
+						'label'	=> __('Non-Top Level <em>Current Page</em> Item Color', 'indynav'),
 						'opts' => $this->tk_color_options(),
 					),
+*/
 		            array(
 		                'key'		=> 'indynav_color_sub_items_current_picker',
 		                'type'		=> 'color',
-		                'label'		=> __( 'Non-Top Level <em>Current Page</em> Item Color', 'indynav' ),
+		                'label'		=> __( 'Non-Top Level <em>Current Page</em> Item Color<br>Default: White', 'indynav' ),
 		                'default'	=> '',
 		            ),
 		            //
+/*
 					array(
 						'key'	=> 'indynav_color_sub_items_current_bg',
 						'type' 	=> 'select',
-						'label'	=> __('Non-Top Level <em>Current Page</em> Item <em>Background</em> Color<br>Default: <span style="color: #2278e8;">#2278e8</span>', 'indynav'),
+						'label'	=> __('Non-Top Level <em>Current Page</em> Item <em>Background</em> Color', 'indynav'),
 						'opts' => $this->tk_color_options(),
 					),
+*/
 		            array(
 		                'key'		=> 'indynav_color_sub_items_current_bg_picker',
 		                'type'		=> 'color',
-		                'label'		=> __( 'Non-Top Level <em>Current Page</em> Item <em>Background</em> Color', 'indynav' ),
+		                'label'		=> __( 'Non-Top Level <em>Current Page</em> Item <em>Background</em> Color<br>Default: <span style="color: #2278e8;">#2278e8</span>', 'indynav' ),
 		                'default'	=> '',
 		            ),
 		            //
@@ -411,25 +433,29 @@ class DMSIndyNav extends PageLinesSection {
 						'label'			=> __( 'Add text-shadow effect to <em>Current Page</em> top-level menu item and when hovering over items in drop-down?<br>Style: <span style="color: rgba(0,0,0,0.5);">0 -1px 0 rgba(0,0,0,0.5)</span>', 'indynav' ),
 					),
 					//
+/*
 					array(
 						'key'	=> 'indynav_color_caret',
 						'type' 	=> 'select',
-						'label'	=> __('Top Level Caret (Drop Down Indicator) Color<br>Default: <span style="color: rgba(0,0,0,0.3);">rgba(0,0,0,0.3)</span>', 'indynav'),
+						'label'	=> __('Top Level Caret (Drop Down Indicator) Color', 'indynav'),
 						'opts' => $this->tk_color_options(),
 					),
+*/
 		            array(
 		                'key'		=> 'indynav_color_caret_picker',
 		                'type'		=> 'color',
-		                'label'		=> __( 'Top Level Caret (Drop Down Indicator) Color', 'indynav' ),
+		                'label'		=> __( 'Top Level Caret (Drop Down Indicator) Color<br>Default: <span style="color: rgba(0,0,0,0.3);">rgba(0,0,0,0.3)</span>', 'indynav' ),
 		                'default'	=> '',
 		            ),
 		            //
+/*
 					array(
 						'key'	=> 'indynav_color_gchild_caret',
 						'type' 	=> 'select',
 						'label'	=> __('Child Level Caret (Grandchild Indicator) Color', 'indynav'),
 						'opts' => $this->tk_color_options(),
 					),
+*/
 		            array(
 		                'key'		=> 'indynav_color_gchild_caret_picker',
 		                'type'		=> 'color',
@@ -437,25 +463,29 @@ class DMSIndyNav extends PageLinesSection {
 		                'default'	=> '',
 		            ),
 		            //
+/*
 					array(
 						'key'	=> 'indynav_color_drop_down_surround',
 						'type' 	=> 'select',
-						'label'	=> __('Drop Down Border/Outline (and Triangle Pointer) Color<br>Default: <span style="color: #ccc;">#ccc</span>', 'indynav'),
+						'label'	=> __('Drop Down Border/Outline (and Triangle Pointer) Color', 'indynav'),
 						'opts' => $this->tk_color_options(),
 					),
+*/
 		            array(
 		                'key'		=> 'indynav_color_drop_down_surround_picker',
 		                'type'		=> 'color',
-		                'label'		=> __( 'Drop Down Border/Outline (and Triangle Pointer) Color', 'indynav' ),
+		                'label'		=> __( 'Drop Down Border/Outline (and Triangle Pointer) Color<br>Default: <span style="color: #ccc;">#ccc</span>', 'indynav' ),
 		                'default'	=> '',
 		            ),
 		            //
+/*
 					array(
 						'key'	=> 'indynav_color_drop_down_padding_bg',
 						'type' 	=> 'select',
 						'label'	=> __('Drop Down Background/Padding Color', 'indynav'),
 						'opts' => $this->tk_color_options(),
 					),
+*/
 		            array(
 		                'key'		=> 'indynav_color_drop_down_padding_bg_picker',
 		                'type'		=> 'color',

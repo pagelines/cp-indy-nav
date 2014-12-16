@@ -11,5 +11,8 @@ Demo: http://www.pagelinestheme.com/indy-nav/
 Changelog
 ==================
 
+== 1.1 ==
+* Removed color preset options so only 1 color setting method (color picker) is available per target.
+
 == 1.0 ==
 * Initial Release
